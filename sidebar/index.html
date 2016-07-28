@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>Sidebar Demo</title>
+	<link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+	<div class="wrapper jsc-sidebar-content jsc-sidebar-pulled">
+		<div> <a href="#" class="icon-menu link-menu jsc-sidebar-trigger" style="font-family: '黑体';">三</a> </div>
+		<div class="main-content">
+			<h1 class="headline"><span class="headline-main">Sidebar&nbsp&nbsp</span>Demo</h1>
+			<p>一个侧边伸缩导航示例</p>
+			<p>请点击左上角的按钮</p>
+		</div>
+	</div>
+
+	<div class="sidebar jsc-sidebar" id="jsi-nav" data-sidebar-options="">
+		<ul class="sidebar-list">
+			<li><a href="#" class="current">Sidebar</a></li>
+			<li><a href="#">展示</a></li>
+			<li><a href="#">代码</a></li>
+		</ul>
+	</div>
+
+	<script src="js/jquery-1.8.3.min.js"></script>
+	<script src="js/sidebar.js"></script> 
+	<script>
+		$('#jsi-nav').sidebar({
+			trigger: '.jsc-sidebar-trigger'
+		});
+	</script>
+
+	</body>
+</html>
