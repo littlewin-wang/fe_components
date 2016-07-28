@@ -1,0 +1,173 @@
+*, *:before, *:after {
+  margin: 0px;
+  padding: 0px;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+  border: 0px;
+  font-size: 100%;
+  font: inherit;
+}
+
+body, input {
+  font-family: "Gudea";
+  font-size: 16px;
+  color: #525252;
+  line-height: 100%;
+}
+
+h1, h1 a,
+h2, h2 a,
+h3, h3 a,
+h4, h4 a,
+h5, h5 a {
+  font-family: "Asap";
+  color: #262626;
+  line-height: 1.200em;
+  margin-bottom: 20px;
+}
+
+h1 {
+  font-size: 38.08px;
+}
+
+h2 {
+  font-size: 2.000em;
+}
+
+h3 {
+  font-size: 25.6px;
+}
+
+h4 {
+  font-size: 22px;
+}
+
+h5 {
+  font-size: 17.6px;
+}
+
+p {
+  font-size: 18px;
+  line-height: 1.750em;
+}
+
+p + p {
+  margin-top: 20px;
+}
+
+ul li, ol li {
+  margin: 10px 0px 10px 40px;
+  font-size: 0.933em;
+  line-height: 1.650em;
+}
+
+ul + p, ol + p,
+p + h1, p + h2, p + h3, p + h4, p + h5 {
+  margin-top: 30px;
+}
+
+p + ul, p + ol {
+  margin-top: 10px;
+}
+
+strong {
+  font-weight: 700;
+}
+
+em {
+  font-style: italic;
+}
+
+a {
+  color: #3C8FC7;
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+@font-face {
+  font-family: "FontAwesome";
+  src: url("../fonts/fontawesome-webfont.eot");
+  src: url("../fonts/fontawesome-webfont.eot?#iefix") format("embedded-opentype"), url("../fonts/fontawesome-webfont.woff") format("woff"), url("../fonts/fontawesome-webfont.ttf?") format("truetype"), url("../fonts/fontawesome-webfont.svg#fontawesomeregular") format("svg");
+  font-weight: normal;
+  font-style: normal;
+}
+
+html, body {
+  height: 100%;
+  background: #fff;
+}
+
+.main {
+  max-width: 1000px;
+  width: 90%;
+  margin: 0px auto;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+}
+
+.page-title {
+  margin-bottom: 40px;
+  padding-bottom: 40px;
+  border-bottom: 1px solid #e2e2e2;
+  text-align: center;
+}
+
+.site-header-wrap {
+  margin-bottom: 60px;
+  padding: 60px 0px 50px;
+  background: #20262c;
+}
+
+.site-header {
+  max-width: 1000px;
+  width: 90%;
+  margin: 0px auto;
+  text-align: center;
+}
+
+.site-tagline {
+  margin-top: 10px;
+  display: block;
+  opacity: 0.4;
+  font-size: 26px;
+  color: #fff;
+}
+
+.site-header .site-nav ul:after, .site-header:after, .main:after, .clearfix:after, .clearfix {
+  display: block;
+  clear: both;
+  content: '';
+}
+
+.site-header .site-nav ul {
+  padding-top: 0px;
+}
+.site-header .site-nav ul li {
+  margin: 0px 30px 0px 0px;
+  float: left;
+  list-style: none;
+}
+
+.site-header .site-nav ul li:last-child {
+  margin-right: 0px;
+}
+
+.fa-icon, [class^="fa-"]:before, .site-header .site-nav a:before {
+  display: inline-block;
+  position: relative;
+  font-family: "FontAwesome";
+  font-weight: normal;
+  line-height: 95%;
+}
+
+.site-logo {
+  overflow: hidden;
+  text-indent: -99999px;
+}
