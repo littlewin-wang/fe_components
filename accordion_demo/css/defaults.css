@@ -1,0 +1,136 @@
+.site-header:after, .main:after, .clearfix:after, .clearfix {
+  display: block;
+  clear: both;
+  content: '';
+}
+
+*, *:before, *:after {
+  margin: 0px;
+  padding: 0px;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+  border: 0px;
+  font-size: 100%;
+  font: inherit;
+}
+
+body, input {
+  font-family: "Gudea";
+  font-size: 16px;
+  color: #525252;
+  line-height: 100%;
+}
+
+p {
+  font-size: 18px;
+  line-height: 1.750em;
+}
+
+p + p {
+  margin-top: 20px;
+}
+
+a {
+  color: #3C8FC7;
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+.site-header-wrap {
+  margin-bottom: 60px;
+  padding: 45px 0px 40px;
+  position: relative;
+  border-bottom: 1px solid #000;
+  background: #1b1b1b url("../img/dark-bg.png");
+}
+
+.site-header-wrap:after {
+  width: 100%;
+  height: 4px;
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  content: '';
+  background: url("../img/stripe-bg.png") repeat-x;
+}
+
+.site-header {
+  width: 1000px;
+  margin: 0px auto;
+  text-align: center;
+}
+
+.site-logo {
+  font-family: "Asap";
+  font-size: 3.000em;
+  color: #777;
+  line-height: 100%;
+  -moz-transition: color linear 0.15s;
+  -webkit-transition: color linear 0.15s;
+  -o-transition: color linear 0.15s;
+  -ms-transition: color linear 0.15s;
+}
+
+.site-logo:hover {
+  text-decoration: none;
+  color: #fff;
+}
+
+.site-logo span {
+  display: block;
+  font-size: 0.500em;
+}
+
+.site-header .site-nav {
+  width: 100%;
+  margin-top: 30px;
+  padding-top: 30px;
+  box-shadow: inset 0px 1px 0px rgba(255, 255, 255, 0.05);
+  border-top: 1px solid rgba(0, 0, 0, 0.75);
+}
+
+.site-header .site-nav a {
+  margin-right: 40px;
+  font-weight: 600;
+  color: #777;
+  -moz-transition: color linear 0.15s;
+  -webkit-transition: color linear 0.15s;
+  -o-transition: color linear 0.15s;
+  -ms-transition: color linear 0.15s;
+}
+
+.site-header .site-nav a:hover {
+  text-decoration: none;
+  color: #fff;
+}
+
+.site-header .site-nav a [class^="fa-"] {
+  margin-right: 5px;
+  font-size: 1.200em;
+}
+
+html, body {
+  height: 100%;
+  background: #fff;
+}
+
+.main {
+  width: 1000px;
+  margin: 0px auto;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+}
+
+.page-title {
+  margin-bottom: 40px;
+  padding-bottom: 40px;
+  border-bottom: 1px solid #e2e2e2;
+  text-align: center;
+}
