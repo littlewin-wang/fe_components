@@ -1,7 +1,5 @@
 ## My FE Components
-Collection of little components while practicing 
-
-----------
+Collection of little components while practicing.
 
 ### forEach
 - [Tab demo](https://github.com/littlewin-wang/fe_components/tree/master/tab_demo "source code") | [Demo](http://littlewin.info/fe_components/tab_demo/ "demo")
@@ -11,12 +9,8 @@ Collection of little components while practicing
 - [Background slider](https://github.com/littlewin-wang/fe_components/tree/master/background_slider "source code") | [Demo](http://littlewin.info/fe_components/background_slider/ "demo")
 - [Accordion demo](https://github.com/littlewin-wang/fe_components/tree/master/accordion_demo "source code") | [Demo](http://littlewin.info/fe_components/accordion_demo/ "demo")
 
-----------
-
 ### History
-2016.8.1 - Init Readme 
-
-----------
+2016.8.1 - Init Readme and add link of first six demos.
 
 ### To Do
-Add more demos
+Add more demos.
