@@ -1,15 +1,25 @@
-var WINDOW_WIDTH = 1920;
+var WINDOW_WIDTH = 1024;
 var WINDOW_HEIGHT = 768;
 var RADIUS = 8;
 var MARGIN_TOP = 60;
 var MARGIN_LEFT = 30;
-const endTime = new Date(2016, 7, 7, 18, 47, 52);
+
+//var endTime = new Date();
+//endTime.setTime(endTime.getTime() + 10 * 3600 * 1000);
+
 var curShowTimeSeconds = 0;
 
 var balls = [];
 const colors = ["#33B5E5","#0099CC","#AA66CC","#9933CC","#99CC00","#669900","#FFBB33","#FF8800","#FF4444","#CC0000"];
 
 window.onload = function() {
+
+  WINDOW_WIDTH = document.body.clientWidth;
+
+  MARGIN_LEFT = Math.round(WINDOW_WIDTH / 10);
+  MARGIN_TOP = Math.round(WINDOW_HEIGHT / 5);
+  RADIUS = Math.round(WINDOW_WIDTH * 4 / 5 / 108) - 1;
+
   var canvas = document.getElementById('canvas');
   var context = canvas.getContext("2d");
 
@@ -27,9 +37,8 @@ window.onload = function() {
 
 function getCurShowTimeSeconds() {
   var curTime = new Date();
-  var ret = endTime.getTime() - curTime.getTime();
-  ret = Math.round(ret/1000);
-  return ret > 0 ? ret : 0;
+  var ret = curTime.getHours() * 3600 + curTime.getMinutes() * 60 + curTime.getSeconds();
+  return ret;
 }
 
 function update() {
@@ -83,12 +92,14 @@ function updateBalls(){
     }
   }
 
-  var cnt = 0
-  for( var i = 0 ; i < balls.length ; i ++ )
-    if( balls[i].x + RADIUS > 0 && balls[i].x -RADIUS < WINDOW_WIDTH )
-      balls[cnt++] = balls[i]
+  var cnt = 0;
+  for( var i = 0 ; i < balls.length ; i ++ ) {
+    if(balls[i].x + RADIUS > 0 && balls[i].x -RADIUS < WINDOW_WIDTH) {
+      balls[cnt++] = balls[i];
+    }
+  }
 
-  while( balls.length > cnt ){
+  while( balls.length > Math.min(300, cnt)){
     balls.pop();
   }
 }
