@@ -14,8 +14,6 @@ Collection of little components while practicing.
   <br><img src="https://cloud.githubusercontent.com/assets/14028075/17397077/fd861ca0-5a68-11e6-81e6-19afcd7ee409.gif" width="50%" height="50%">
 - [Accordion demo](https://github.com/littlewin-wang/fe_components/tree/master/accordion_demo "source code") | [Demo](http://littlewin.info/fe_components/accordion_demo/ "demo")
   <br><img src="https://cloud.githubusercontent.com/assets/14028075/17397075/fd7d46f2-5a68-11e6-9453-fb3a48fd8401.gif" width="50%" height="50%">
-- [Canvas countdown demo](https://github.com/littlewin-wang/fe_components/tree/master/canvas_countdown_demo "source code") | [Demo](http://littlewin.info/fe_components/canvas_countdown_demo/ "demo")
-  <br><img src="https://cloud.githubusercontent.com/assets/14028075/17543526/cf921ac0-5f03-11e6-97c9-763bca598445.gif" width="50%" height="50%">
 - [Fullpage demo](https://github.com/littlewin-wang/fe_components/tree/master/fullpage-demo "source code") | [Demo](http://littlewin.info/fe_components/fullpage-demo/ "demo")
   <br><img src="https://cloud.githubusercontent.com/assets/14028075/17543527/cfc05354-5f03-11e6-98fe-fa8ccd697c58.gif" width="50%" height="50%">
 
