@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>SEARCH</title>
+  <style>
+    html {
+      width: 100%;
+      height: 100%;
+    }
+    
+    body {
+      width: 100%;
+      height: 100%;
+    }
+
+    .search-container {
+      max-width: 640px;
+      margin: 0 auto;
+    }
+
+    .search-container #search {
+      box-sizing: border-box;
+      border: 1px solid #000;
+      width: 100%;
+      padding: 1em;
+      border-radius: .2rem;
+    }
+
+    .search-container .search-list {
+      list-style: none;
+      margin: 0;
+      padding: 0;
+      border: 1px solid #ccc;
+    }
+
+    .search-container .search-list li {
+      cursor: pointer;
+    }
+
+    .search-container .search-list li:hover {
+      background: #ccc
+    }
+  </style>
+</head>
+<body>
+  <div class="search-container">
+    <input type="text" id="search">
+    <ul class="search-list">
+      <li></li>
+      <li></li>
+      <li></li>
+      <li></li>
+      <li></li>
+      <li></li>
+      <li></li>
+      <li></li>
+      <li></li>
+      <li></li>
+    </ul>
+  </div>
+  <script>
+    function resetLists () {
+      let lists = document.querySelectorAll('li')
+
+      lists.forEach(list => {
+        list.innerHTML = ''
+        list.style.display = 'none'
+      })
+    }
+
+    resetLists()
+
+    function update (data) {
+      let lists = document.querySelectorAll('li')
+
+      data.s.forEach((v, i) => {
+        lists[i].innerHTML = v
+        lists[i].style.display = ''
+      })
+
+      // delete scripts
+      var s = document.querySelectorAll('script')
+      for (var i = 1, len = s.length; i < len; i++) {
+        document.body.removeChild(s[i])
+      }
+    }
+
+    class Search {
+      constructor(base, wd) {
+        this.base = base
+        this.wd = wd
+      }
+
+      getResult() {
+        let script = document.createElement('script')
+        script.src = `${this.base}?wd=${this.wd}&p=3&cb=update`
+        document.body.appendChild(script)
+      }
+    }
+
+    document.querySelector('#search').onkeyup = function () {
+      resetLists()
+
+      if (this.value.trim() === '') {
+        return
+      }
+
+      const search = new Search('http://unionsug.baidu.com/su', encodeURI(this.value.trim()))
+      search.getResult()
+    }
+
+    document.querySelector('.search-list').onclick = function (e) {
+      let wd = e.target.innerHTML
+      window.open('https://www.baidu.com/s?word=' + encodeURI(wd))
+    }
+
+    document.onclick = function (e) {
+      console.log(e)
+      if (e.target.name === window.body) {
+        resetLists()
+      }
+    }
+  </script>
+</body>
+</html>
