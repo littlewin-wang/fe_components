@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>gobang</title>
+  <style>
+    button {
+      padding: 6px 10px;
+      display: none;
+    }
+  
+    .show {
+      display: block;
+      margin: 0 auto;
+    }
+  
+    #canvas {
+      border: 1px solid blue;
+      margin: 0 auto;
+      display: block;
+    }
+  </style>
+</head>
+<body>
+  <button>重新开始</button>
+  <canvas id="canvas"></canvas>
+  <script>
+    // 棋盘格子间距，数量
+    var dis = 35,
+        num = 16,
+        icon = 0,
+        arr = []
+
+    // 棋盘格子数组，0 为空，1 为黑棋， 2 为白棋
+    for (var x = 0; x < num; x++) {
+      arr[x] = []
+      for (var y = 0; y < num; y++) {
+        arr[x][y] = 0
+      }
+    }
+
+    // canvas 绘制棋盘
+    var canvas = document.querySelector('#canvas'),
+        btn = document.querySelector('button')
+    
+    canvas.width = dis * num
+    canvas.height = dis * num
+    
+    var ctx = canvas.getContext('2d')
+
+    ctx.fillStyle = '#ffc007'
+    ctx.fillRect(0, 0, dis * num, dis * num)
+
+    for (var i = 1; i < num; i++) {
+      ctx.moveTo(0, i * dis)
+      ctx.lineTo(700, i * dis)
+      ctx.stroke()
+      ctx.moveTo(i * dis, 0)
+      ctx.lineTo(i * dis, 700)
+      ctx.stroke()
+    }
+
+    var canvasLeft = canvas.offsetLeft
+        canvasTop = canvas.offsetTop
+
+    canvas.addEventListener('click', handleClick)
+
+    function handleClick (e) {
+      var cvsX = e.pageX - canvasLeft,
+          cvsY = e.pageY - canvasTop
+      draw(cvsX, cvsY)
+    }
+
+    function draw(x, y) {
+      if (x < dis / 2 || x > dis * num - dis / 2 || y < dis / 2 || y > dis * num - dis / 2) {
+        return
+      }
+
+      var cx = Math.round(x/dis),
+          cy = Math.round(y/dis),
+          color
+
+      if (arr[cx][cy] !== 0) {
+        return
+      }
+
+      icon += 1
+
+      if (icon % 2 === 0) {
+        color = '#fff'
+        arr[cx][cy] = 1
+        judge(cx, cy, arr[cx][cy])
+      }
+      else {
+        color = '#000'
+        arr[cx][cy] = 2
+        judge(cx, cy, arr[cx][cy])
+      }
+
+      ctx.fillStyle = color
+      ctx.beginPath()
+      ctx.arc(cx * dis, cy * dis, dis / 2 - 3, 0, 2 * Math.PI)
+      ctx.fill()
+    }
+
+    function judge (x, y, map) {
+      isX(map, x, y)
+      isY(map, x, y)
+      isLx(map, x, y)
+      isLy(map, x, y)
+    }
+
+    function isX(colNum, x, y) {
+      var count = 0;
+
+      for (var i = x; i >= 0; i--) {
+        if (arr[i][y] === colNum) {
+          count++
+        } else {
+          break
+        }
+      }
+      for (var i = x; i <= num; i++) {
+        if (arr[i][y] === colNum) {
+          count++;
+        } else {
+          break
+        }
+      }
+      success(count, colNum)
+    }
+
+    function isY(colNum, x, y) {
+      var count = 0;
+      for (var i = y; i >= 0; i--) {
+        if (arr[x][i] === colNum) {
+          count++;
+        } else {
+          break;
+        }
+      }
+      for (var i = y; i <= num; i++) {
+        if (arr[x][i] === colNum) {
+          count++;
+        } else {
+          break
+        }
+      }
+      success(count, colNum)
+    }
+
+    function isLx (colNum, x, y) {
+      var count = 0;
+      for (var i = x, k = y; i >= 0 && k >= 0; i-- , k--) {
+        if (arr[i][k] === colNum) {
+          count++
+        } else {
+          break
+        }
+      }
+      for (var i = x, k = y; i <= num && k <= num; i++ , k++) {
+        if (arr[i][k] === colNum) {
+          count++
+        } else {
+          break
+        }
+      }
+      success(count, colNum)
+    }
+
+    function isLy (colNum, x, y) {
+      var count = 0;
+      for (var i = x, k = y; i >= 0 && k <= num; i-- , k++) {
+        if (arr[i][k] === colNum) {
+          count++
+        } else {
+          break
+        }
+      }
+      for (var i = x, k = y; i <= num && k >= 0; i++ , k--) {
+        if (arr[i][k] === colNum) {
+          count++
+        } else {
+          break
+        }
+      }
+      success(count, colNum)
+    }
+
+    function success (count, colNum) {
+      if (count >= 6) {
+        if (colNum === 2) {
+          alert('黑棋获胜')
+          console.log('黑棋获胜')
+        } else {
+          alert('白棋获胜')
+          console.log('白棋获胜')
+        }
+        canvas.removeEventListener('click', handleClick)
+        btn.className = 'show'
+      }
+    }
+
+    btn.addEventListener('click', function () {
+      location.reload()
+    })
+  </script>
+</body>
+</html>
